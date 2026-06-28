@@ -1,54 +1,65 @@
 # Journal
 
 ## Week 1 — Setup
+
 - Workspace + first crate running.
-- Create repo on Github.
-- Next: Rust Book ch. 1–6, Rustlings intro.
+- Created repo on GitHub.
+- **Next:** Rust Book ch. 1–6, Rustlings intro.
+
+---
 
 ## Week 2 — Rust Foundations
-- Chapter 1 Quiz Scores (+Notes):
-  - 1.1: 100%
-  - 1.2: 100%
-  - 1.3: 100%
 
-- Chapter 1 Notes:
-  - This chapter got me comfortable using cargo and understanding the basic file structure of a Rust project.
+### Chapter 1 — Getting Started
 
-- Chapter 2 Notes:
-  - I can create separate runnable binaries inside of existing crates and ```cargo run``` them separately: ```cargo run -p week02-foundations --bin guessing_game```
-  - RUST always brings the Prelude into scope.
-  - Variables are immutable by default.
-  - References (&) are also immutable by default.
-  - Use parse() to convert a value from one type to another one.
-  - Use ```loop``` to create an infinite loop. ```break``` stops the loop and ```continue``` restarts the loop.
-  - Use ```match``` rather than ```.expect``` with Result in order to catch errors.
+**Quiz:** 1.1 · 1.2 · 1.3 — all 100%.
 
-- Chapter 3 Quiz Scores (+Notes):
-  - 3.1: 
-    - 100%
-    - 50% Thought the compiler will error if the const declaration does not follow Rust's naming convention. Actually ```let``` variables can only be declared inside a function!
-    - 100%
-  - 3.2:
-    - 100%
-    - 100%
+Got comfortable with `cargo` and the basic file structure of a Rust project.
 
-- Chapter 3 Notes:
-  - Set up Rustlings to do the exercises in parallel.
-  - Create variables.rs in bin folder.
-  - ```const``` as the name suggests can not be changed after assigning them a value. Type declaration is also necessary.
-  - Constants can only be set to constant expressions, not to a value that will get computed at runtime (in contrast to compile time).
-  - Rust’s naming convention for constants is to use all uppercase with underscores between words.
+### Chapter 2 — Guessing Game
 
-  - Rust is statically typed. It must know the data types of all variables at compile time.
-  - A scalar type represents a single value, e.g integers, floating-point numbers, Booleans, and characters.
-  - Compound types can group multiple values into one type, e.g tuples and arrays.
-  - Floats are always signed numbers.
-  - Chars use single quotation marks.
-  - Tuples can store values of multiple types. Fixed in length. ```let tup: (i32, f64, u8) = (500, 6.4, 1);```
-  - Access single values of a tuple either by destructuring the tuple or by using .index notation.
-  - An empty tuple is called a unit ```()```.
-  - Arrays can store values of a specific type. Fixed in length. ```let a: [i32; 5] = [1, 2, 3, 4, 5];```
-  - ```let a = [3, 3, 3, 3, 3];``` can also be written like this ```let a = [3; 5];```
-  - Elements of an array x can be accessed like this ```x[0]```
+- Separate runnable binaries can live inside an existing crate and run individually:
+  `cargo run -p week02-foundations --bin guessing_game`
+- The Prelude is always brought into scope automatically.
+- Variables are immutable by default; references (`&`) are too.
+- `parse()` converts a value from one type to another.
+- `loop` makes an infinite loop — `break` stops it, `continue` restarts it.
+- Prefer `match` over `.expect` with `Result` to handle errors.
 
-  - Next up: Functions
+### Chapter 3 — Common Programming Concepts
+
+**Quiz**
+
+| Section | Result | Note on misses |
+|---|---|---|
+| 3.1 | 100% / **50%** / 100% | Wrongly thought the compiler errors when a `const` ignores the naming convention. Real lesson: `let` can't be used at module/global scope — it only works inside a function or block, whereas `const` can be declared anywhere. |
+| 3.2 | 100% / 100% | — |
+| 3.3 | 100% | — |
+
+**Setup**
+
+- Set up Rustlings to run exercises in parallel.
+- Created `variables.rs` in the `bin` folder.
+
+**Constants**
+
+- `const` can't change after assignment, and the type must be declared.
+- Must be set to a constant expression — no runtime-computed values (compile-time only).
+- Naming convention: all uppercase with underscores, e.g. `MAX_POINTS`.
+
+**Types**
+
+- Rust is statically typed: all variable types are known at compile time.
+- *Scalar* types hold a single value: integers, floats, Booleans, chars.
+- *Compound* types group values: tuples and arrays.
+- Floats are always signed.
+- Chars use single quotes.
+- Tuples: mixed types, fixed length — `let tup: (i32, f64, u8) = (500, 6.4, 1);`. Access by destructuring or `.index`. An empty tuple `()` is the *unit*.
+- Arrays: one type, fixed length — `let a: [i32; 5] = [1, 2, 3, 4, 5];`. Shorthand `[3; 5]` == `[3, 3, 3, 3, 3]`. Access with `a[0]`.
+
+**Functions**
+
+- Names use `snake_case`.
+- Definition order doesn't matter, as long as they're visible to the caller.
+- Parameter types must be declared in the signature.
+- *Statements* perform an action and return no value; *expressions* evaluate to a value.
