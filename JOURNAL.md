@@ -34,7 +34,8 @@ Got comfortable with `cargo` and the basic file structure of a Rust project.
 |---|---|---|
 | 3.1 | 100% / **50%** / 100% | Wrongly thought the compiler errors when a `const` ignores the naming convention. Real lesson: `let` can't be used at module/global scope — it only works inside a function or block, whereas `const` can be declared anywhere. |
 | 3.2 | 100% / 100% | — |
-| 3.3 | 100% | — |
+| 3.3 | 100% / 66% | Forgot to add 1 to the result. Guessed correctly that the code would run. |
+| 3.5 | 100% | — |
 
 **Setup**
 
@@ -63,3 +64,34 @@ Got comfortable with `cargo` and the basic file structure of a Rust project.
 - Definition order doesn't matter, as long as they're visible to the caller.
 - Parameter types must be declared in the signature.
 - *Statements* perform an action and return no value; *expressions* evaluate to a value.
+- An expression with a semicolon at the end becomes a statement and does not return a value.
+
+**Comments**
+
+- Add single-line comments using `//`
+- To add multi-line comments use `/*your comment on many lines*/` 
+
+**Flow Control**
+
+- Common flow-control constructs include `if` and `loop`.
+- Conditions of an `if` statement have to be a *bool*.
+- Conditions can not be *truthy* or *falsy*.
+- Multiple conditions in an *if* statement: 
+  ```rust
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+  ```
+- `if` statements can be combined with `let`, e.g `let x = if true {5} else {6};`. The resulting values have to be of the same kind.
+- Rust has three kinds of loops: loop, while, and for.
+- `loop` makes an infinite loop — `break` stops it, `continue` restarts it.
+- To return a value from a loop add it after the `break` statement, e.g `break counter * 2;`
+- `return` always exits the current function.

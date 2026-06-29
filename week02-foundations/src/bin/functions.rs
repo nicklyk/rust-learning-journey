@@ -3,6 +3,8 @@ fn main() {
 
     another_function();
     print_labeled_measurement(2, 'a');
+    let n = return_value();
+    println!("{n}");
 }
 
 fn another_function() {
@@ -16,4 +18,8 @@ fn yet_another_function(x: i32) {
 
 fn print_labeled_measurement(value: i32, unit_label: char) {
     println!("The measurement is: {value}{unit_label}");
+}
+
+fn return_value() -> i32 {
+    5
 }
